@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name }}
+spec:
+  replicas: {{ .Values.app.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app.name }}
+    spec:
+      containers:
+        - name: app
+          image: "{{ .Values.app.image.repository }}:{{ .Values.app.image.tag }}"
+          imagePullPolicy: {{ .Values.app.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.app.port }}
+          startupProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.app.port }}
+            failureThreshold: 30
+            periodSeconds: 5  
+          readinessProbe:
+             httpGet:
+              path: /health
+              port: 8000
+             initialDelaySeconds: 5
+             periodSeconds: 5
+             failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 3 
+          env:
+            - name: ELASTICSEARCH_HOST
+              value: "http://{{ .Values.elasticsearch.name }}:{{ .Values.elasticsearch.port }}"
+            - name: ELASTICSEARCH_INDEX
+              value: "city-populations"

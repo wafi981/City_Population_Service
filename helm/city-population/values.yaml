@@ -1,0 +1,15 @@
+app:
+  name: city-population-service
+  image:
+    repository: city-population-service
+    tag: latest
+    pullPolicy: IfNotPresent
+  replicas: 1
+  port: 8000
+
+elasticsearch:
+  name: elasticsearch
+  image:
+    repository: docker.elastic.co/elasticsearch/elasticsearch
+    tag: 8.13.4
+  port: 9200
