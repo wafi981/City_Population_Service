@@ -1,8 +1,8 @@
 app:
   name: city-population-service
   image:
-    repository: city-population-service
-    tag: latest
+    repository: wbabtesting/city-population-service
+    tag: "1.0"
     pullPolicy: IfNotPresent
   replicas: 1
   port: 8000
