@@ -34,7 +34,7 @@ docker version
 
 Navigate Inside helm Folder
 ```
-cd helm
+cd helm/city-population
 ```
 
 Install Helm Chart:
