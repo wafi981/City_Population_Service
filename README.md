@@ -82,6 +82,8 @@ elasticsearch-65cd8db49-xl8gz              1/1     Running   0          3h11m
 
 ```
 
+### Note:
+Rolling updates, resource governance, and zero-downtime deployments are enforced via Kubernetes Deployment strategy (RollingUpdate with maxUnavailable: 0), explicit CPU/memory requests & limits, and dedicated startup, readiness, and liveness probes (see Helm templates).
 
 ## Access the Application:
 
