@@ -38,20 +38,20 @@ spec:
               memory: "256Mi"
           startupProbe:
             httpGet:
-              path: /health
+              path: /health/ready
               port: {{ .Values.app.port }}
             failureThreshold: 30
             periodSeconds: 5  
           readinessProbe:
             httpGet:
-              path: /health
+              path: /health/ready
               port: {{ .Values.app.port }}
             initialDelaySeconds: 5
             periodSeconds: 5
             failureThreshold: 3
           livenessProbe:
             httpGet:
-              path: /health
+              path: /health/live
               port: {{ .Values.app.port }}
             initialDelaySeconds: 30
             periodSeconds: 10

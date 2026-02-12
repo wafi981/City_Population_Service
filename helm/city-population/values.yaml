@@ -2,7 +2,7 @@ app:
   name: city-population-service
   image:
     repository: wbabtesting/city-population-service
-    tag: "1.3"
+    tag: "1.4"
     pullPolicy: IfNotPresent
   replicas: 1
   port: 8000
