@@ -11,7 +11,7 @@ services:
       - "9200:9200"
 
   app:
-    image: wbabtesting/city-population-service:1.0
+    image: wbabtesting/city-population-service:1.4
     container_name: city-app
     environment:
       - ELASTICSEARCH_HOST=http://elasticsearch:9200
