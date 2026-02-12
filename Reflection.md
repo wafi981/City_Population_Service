@@ -138,7 +138,7 @@ With 3 replicas:
 The cluster tolerates 1 node failure, it maintains quorum and Preserves write availability
 
 
-### 3.) 💾 3️⃣ Backup & Restore Strategy
+### 3.) Backup & Restore Strategy
 
 #### Implement automated snapshot policies:
 
@@ -153,7 +153,7 @@ The cluster tolerates 1 node failure, it maintains quorum and Preserves write av
 **Backups without restore validation are incomplete.**
 
 
-### 4.) 🌍 4️⃣ Multi-Region Disaster Recovery (DR)
+### 4.) Multi-Region Disaster Recovery (DR)
 
 For mission-critical systems:
 
